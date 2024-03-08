@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="./style.css">
     <title>テストアプリ</title>
     <script>
       const updateLux = async(url, element) => {
@@ -13,17 +12,14 @@
     </script>
   </head>
 
-  <div class = "flex">
-    <p>電気明暗確認システム</p>
-    <div class= "img">
-      <img src="./light.png" alt="">
-    </div>
+  <div style="margin: 5px; padding: 0 15px; font-size: 30px; color: teal;">
+    電気明暗確認システム
   </div>
-
+  
   <body onLoad="updateLux('/lux', 'data')">
-    <div class = "box">
-      <div class = "data">test</div>
-      <input type="button", value="確認", onclick="updateLux('/lux', 'data')">
+    <div style= "text-align: center;">
+      <div style="font-size: 30px; padding: 10px; ">test</div>
+      <input type="button", style="width: 6em; height: 3em; background-color: yellow;", value="確認", onclick="updateLux('/lux', 'data')">
     </div>
   </body>
 </html>

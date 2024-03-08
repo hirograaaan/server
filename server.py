@@ -6,10 +6,6 @@ port_num = 21013
 @app.route('/', methods=['GET'])
 def get_html():
   return render_template('./index.html')
-def get_css():
-  return render_template('./style.css')
-def get_img():
-  return render_template('./light.img')
 
 
 @app.route('/lux', methods=['POST'])
