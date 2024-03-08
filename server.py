@@ -11,9 +11,14 @@ def get_html():
 def update_lux():
   time = request.form["time"]
   lux = request.form["lux"]
+  if lux == "0":
+    light = "off"
+  else:
+    light = "on"
+
   try:
     f = open(file_path, 'w')
-    f.write(time + "," + lux)
+    f.write(time + "," + lux + "," + light)
     return "succeeded to write"
   except Exception as e:
     print(e)
