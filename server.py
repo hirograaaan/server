@@ -12,7 +12,7 @@ def get_html():
 def update_lux():
   time = request.form["time"]
   lux = request.form["lux"]
-  if lux < '10':
+  if lux == ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
     light = "off"
   else:
     light = "on"
