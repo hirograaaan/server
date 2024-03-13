@@ -1,25 +1,21 @@
 from flask import Flask, request, render_template
 app = Flask(__name__)
-file_path = "./sensor_data.csv"
+file_path = "./final_sensor_data.csv"
 port_num = 21013
 
 @app.route('/', methods=['GET'])
 def get_html():
-  return render_template('./index.html')
+  return render_template('./final_index.html')
 
 
-@app.route('/lux', methods=['POST'])
-def update_lux():
+@app.route('/temp', methods=['POST'])
+def update_temp():
   time = request.form["time"]
-  lux = request.form["lux"]
-  if lux <= '10':
-    light = "off"
-  else:
-    light = "on"
+  temp = request.form["temp"]
 
   try:
     f = open(file_path, 'w')
-    f.write(time + "," + lux + "," + light)
+    f.write(time + "," + temp)
     return "succeeded to write"
   except Exception as e:
     print(e)
@@ -27,8 +23,8 @@ def update_lux():
   finally:
     f.close()
 
-@app.route('/lux', methods=['GET'])
-def get_lux():
+@app.route('/temp', methods=['GET'])
+def get_temp():
   try:
     f = open(file_path, 'r')
     for row in f:
