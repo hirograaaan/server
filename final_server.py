@@ -28,12 +28,12 @@ def get_temp():
   try:
     f = open(file_path, 'r')
     for row in f:
-      lux = row
+      temp = row
   except Exception as e:
     print(e)
   finally:
     f.close()
-    return lux
+    return temp
   
 
 if __name__ == '__main__':
