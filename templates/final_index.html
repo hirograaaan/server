@@ -3,7 +3,7 @@
   <head>
     <title>テストアプリ</title>
     <script>
-      const updateLux = async(url, element) => {
+      const updateTemp = async(url, element) => {
         const sensorData = await fetch(url)
         .then(response => response.text())
         const target = document.getElementById(element)
@@ -12,16 +12,11 @@
     </script>
   </head>
 
-  <!--
-  <div style="margin: 5px; padding: 0 15px; font-size: 30px; color: teal;">
-    電気明暗確認システム
-  </div>
-  -->
   
-  <body onLoad="updateLux('/temp', 'data')">
+  <body onLoad="updateTemp('/temp', 'data')">
     <div style= "text-align: center;">
-      <div id = "data" , style="font-size: 30px; padding: 10px; ">test</div>
-      <input type="button", style="width: 6em; height: 3em; background-color: yellow;", value="確認", onclick="updateLux('/temp', 'data')">
+      <div id = "data">test</div>
+      <input type="button", value="確認", onclick="updateTemp('/temp', 'data')">
     </div>
   </body>
 </html>
